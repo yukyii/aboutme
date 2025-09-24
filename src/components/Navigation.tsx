@@ -7,7 +7,7 @@ interface NavigationProps {
 }
 
 export function Navigation({ activeSection, setActiveSection, onSectionClick }: NavigationProps) {
-  const navItems = ['Home', 'Resume', 'About', 'Thoughts'];
+  const navItems = ['Home', 'Resume', 'About', 'Projects'];
   const navRef = useRef<HTMLDivElement>(null);
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0, opacity: 0 });
 

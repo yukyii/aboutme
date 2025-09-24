@@ -3,7 +3,7 @@ import { Navigation } from './components/Navigation';
 import { HomePage } from './components/HomePage';
 import { Resume } from './components/Resume';
 import { About } from './components/About';
-import { Thoughts } from './components/Thoughts';
+import { Projects } from './components/Projects';
 import { Footer } from './components/Footer';
 import './styles/fonts/Dotemp-8bit.ttf';
 
@@ -68,7 +68,7 @@ export default function App() {
           <About />
         </section>
         <section id="thoughts">
-          <Thoughts />
+          <Projects />
         </section>
       </main>
       <Footer
