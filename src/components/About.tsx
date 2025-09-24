@@ -7,7 +7,7 @@ export function About() {
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Header */}
         <div className="space-y-4">
-          <h1 className="text-6xl font-medium font-apple-garamond">About Me</h1>
+          <h1 className="text-6xl font-medium font-dotemp">About Me</h1>
         </div>
 
         <div className="grid grid-cols-1 grid-aboutme gap-12">

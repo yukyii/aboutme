@@ -5,6 +5,7 @@ import { Resume } from './components/Resume';
 import { About } from './components/About';
 import { Thoughts } from './components/Thoughts';
 import { Footer } from './components/Footer';
+import './styles/fonts/Dotemp-8bit.ttf';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('Home');

@@ -87,7 +87,7 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
 
       <div className="max-w-4xl mx-auto px-6 py-20">
         <div className="text-center space-y-8">
-          <h3 className="text-2xl font-apple-garamond py-22">Thanks for visiting!</h3>
+          <h3 className="text-2xl font-dotemp py-22">Thanks for visiting!</h3>
           <div className="flex items-center justify-center gap-8">
             <a
               href="mailto:your.email@example.com"

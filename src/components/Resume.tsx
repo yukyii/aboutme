@@ -128,7 +128,7 @@ export function Resume() {
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Header */}
         <div className="space-y-4">
-          <h1 className="text-6xl font-medium font-apple-garamond">Resume</h1>
+          <h1 className="text-6xl font-medium font-dotemp">Resume</h1>
         </div>
 
         {/* Tab Navigation */}

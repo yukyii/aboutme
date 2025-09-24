@@ -99,7 +99,7 @@ export function HomePage({ activeSection }: HomePageProps) {
           {/* Left side - Introduction */}
           <div className="space-y-8 relative z-20">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-medium tracking-tight font-apple-garamond">
+              <h1 className="text-4xl md:text-6xl font-medium tracking-tight font-dotemp">
                 Hello, I'm
                 <br />
                 <span className="text-primary">Your Name</span>
