@@ -15,16 +15,15 @@ export function About() {
           <div className="space-y-8">
             <div className="space-y-6">
               <p className="text-lg leading-relaxed">
-                I'm a passionate developer and designer who believes in creating digital experiences 
-                that are both beautiful and functional. My journey in tech started with a curiosity 
-                about how things work and has evolved into a career focused on building user-centered solutions.
+                I'm passionate about bridging social science knowledge with technological development,
+                so that we may better define and address digital inequalities.
               </p>
 
               <p className="leading-relaxed text-muted-foreground">
-                When I'm not coding, you'll find me exploring new design trends, experimenting with 
-                creative projects, or diving into the latest web technologies. I'm particularly 
-                interested in the intersection of art and technology, and how we can use code as 
-                a medium for creative expression.
+                When I'm not heads down in coding assignments or deconstructing social theories, you'll probably
+                find me running a club event somewhere on campus! As Vice-President of Columbia's largest gaming club,
+                and President of the Singapore Students' Association, I'm always exploring ways to connect people 
+                over things that bring us joy.
               </p>
             </div>
           </div>
@@ -45,7 +44,7 @@ export function About() {
           {/* Values */}
           <div className="space-y-8">
             <div className="relative">
-              <h3 className="font-medium pb-2 font-ibm-mono">What I Value</h3>
+              <h3 className="font-medium pb-2 font-ibm-mono">Where I've Been...</h3>
               <div className="absolute bottom-0 left-0 right-0 border-b-2 border-border"></div>
             </div>
             <div className="py-1">
@@ -60,19 +59,19 @@ export function About() {
             <div className="space-y-3 text-muted-foreground">
               <div className="flex justify-between">
                 <span>Location</span>
-                <span>Your City</span>
+                <span>NYC</span>
               </div>
               <div className="flex justify-between">
-                <span>Experience</span>
-                <span>5+ years</span>
+                <span>Hometown</span>
+                <span>Singapore</span>
               </div>
               <div className="flex justify-between">
-                <span>Focus</span>
-                <span>Frontend</span>
+                <span>Likes</span>
+                <span>Boardgames, Satire</span>
               </div>
               <div className="flex justify-between">
-                <span>Coffee</span>
-                <span>☕ Daily</span>
+                <span>Dislikes</span>
+                <span>Shellfish</span>
               </div>
             </div>
           </div>

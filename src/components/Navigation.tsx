@@ -41,7 +41,7 @@ export function Navigation({ activeSection, setActiveSection, onSectionClick }: 
             onClick={() => handleItemClick('Home')}
             className="font-medium hover:text-primary/80 transition-colors font-ibm-mono"
           >
-            Your Name
+            Yuk Yi Wong
           </button>
           
           <div ref={navRef} className="relative flex space-x-8">

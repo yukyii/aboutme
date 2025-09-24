@@ -102,14 +102,15 @@ export function HomePage({ activeSection }: HomePageProps) {
               <h1 className="text-4xl md:text-6xl font-medium tracking-tight font-dotemp">
                 Hello, I'm
                 <br />
-                <span className="text-primary">Your Name</span>
+                <span className="text-primary">Yuk Yi!</span>
               </h1>
             </div>
             
             <div className="space-y-6">
               <p className="text-base text-muted-foreground max-w-lg">
-                A creative professional passionate about building meaningful digital experiences 
-                that bridge the gap between design and technology.
+                I'm a senior at Barnard College, Columbia University studying Cognitive Science and Sociology.
+                I am also a storyteller, inquirer and creative curious about the intersection between social science 
+                and emerging technologies.
               </p>
             </div>
           </div>

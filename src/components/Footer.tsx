@@ -90,14 +90,14 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
           <h3 className="text-2xl font-dotemp py-22">Thanks for visiting!</h3>
           <div className="flex items-center justify-center gap-8">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:yukyiwng@gmail.com"
               className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
             >
               <Mail className="w-5 h-5" />
-              <span className="font-ibm-mono">your.email@example.com</span>
+              <span className="font-ibm-mono">yukyiwng@gmail.com</span>
             </a>
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/yukyi/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
