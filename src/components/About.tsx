@@ -67,11 +67,11 @@ export function About() {
               </div>
               <div className="flex justify-between">
                 <span>Likes</span>
-                <span>Boardgames, Satire</span>
+                <span>Boardgames, Horror</span>
               </div>
               <div className="flex justify-between">
                 <span>Dislikes</span>
-                <span>Shellfish</span>
+                <span>Horror</span>
               </div>
             </div>
           </div>

@@ -9,40 +9,62 @@ export function Resume() {
 
   const experiences = [
     {
-      title: "Senior Frontend Developer",
-      company: "Tech Company",
-      period: "2022 - Present",
-      description: "Led development of user-facing features for a SaaS platform serving 10k+ users. Implemented responsive designs and improved performance by 40%.",
+      title: "Brand Strategy Intern",
+      company: "Design Bridge and Partners (WPP)",
+      period: "Jun. 2025 - Aug. 2025",
+      description: "Informed brand positioning to drive consumer acquisition for CPG brands (e.g. Kenvue’s Johnson’s Baby, Heineken, Don Julio, Tyson) through market research across 90 brands. Delivered product differentiation strategies by writing creative briefs informed by semiotics, packaging design and cultural trends.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"]
     },
     {
-      title: "Frontend Developer",
-      company: "Digital Agency",
-      period: "2020 - 2022",
-      description: "Developed custom websites and web applications for clients across various industries. Collaborated with design teams to ensure pixel-perfect implementations.",
+      title: "Multicultural Advertising Intern Program Fellow",
+      company: "4A's Foundation",
+      period: "Jun. 2025 - Aug. 2025",
+      description: "Won 2nd Place in a two-month Disney Experiences team competition, developing an emotional campaign that spanned digital and experiential executions to strengthen brand affinity for Walt Disney World Resort.",
       technologies: ["React", "JavaScript", "CSS", "WordPress"]
     },
     {
-      title: "Junior Developer",
-      company: "Startup Inc",
-      period: "2019 - 2020",
-      description: "Built and maintained company website and internal tools. Gained experience in full-stack development and agile methodologies.",
+      title: "HCI Researcher",
+      company: "Barnard College",
+      period: "May 2024 - Dec. 2024",
+      description: "Designed and presented simulations built on Godot Engine 4.3 to explore haptic feedback impact on user agency.",
+      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+    },
+    {
+      title: "Vice-President",
+      company: "Columbia University Gaming Group",
+      period: "Sep. 2024 - Present",
+      description: "Delivered industry mentorship for 70+ aspiring game developers by engaging Xbox professionals as judges for 17 competing teams. Achieved 100% year-over-year funding growth for 150+ member organization by negotiating strategic partnerships. Pioneered Women in Gaming industry panel involving PlayStation and Activision Blizzard leaders, attracting 40+ participants.",
+      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+    },
+    {
+      title: "President",
+      company: "Columbia University Singapore Students' Association",
+      period: "May 2023 - Present",
+      description: "Accomplished organizational transformation by scaling event capacity from 40 to 90 attendees (10+ events annually) and saw 150% social media growth. Scaled organizational reach by 300%, expanding from 1 to 5+ corporate collaborations.",
+      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+    },
+    {
+      title: "Special Projects Intern",
+      company: "Skillseed",
+      period: "Jun. 2023 - Aug. 2023",
+      description: "Identified key barriers to social mobility through interviews, surveys and nonprofit research to inform client workshops. Informed 2024 organizational strategy through analysis of 3 years of operational data.",
+      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+    },
+    {
+      title: "Research and Consulting Intern",
+      company: "Action for Change in Southeast Asia (ActSEA)",
+      period: "Mar. 2022 - Aug. 2022",
+      description: "Executed quantitative impact assessments across 3 countries (Afghanistan, Myanmar, Philippines), analyzing beneficiary datasets of 5,000+ individuals using Excel to evaluate humanitarian program effectiveness for Save the Children and People In Need.",
       technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
     }
   ];
 
   const education = [
     {
-      degree: "Bachelor of Computer Science",
-      school: "University Name",
-      period: "2015 - 2019",
-      details: "Relevant coursework: Data Structures, Algorithms, Web Development, Database Systems"
-    },
-    {
-      degree: "Frontend Development Certification",
-      school: "Online Learning Platform",
-      period: "2019",
-      details: "Intensive program covering modern JavaScript frameworks, responsive design, and web accessibility standards"
+      degree: "Cognitive Science and Sociology",
+      school: "Barnard College, Columbia University",
+      period: "Expected May 2026",
+      details: "Relevant coursework: User Interface Design, Digital Inequalities, Methods for Social Research, Artificial Intelligence (Fall 2025)"
     }
   ];
 
