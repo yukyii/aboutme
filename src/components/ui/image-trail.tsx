@@ -211,14 +211,11 @@ const ImageTrail = ({
   const ElementTag = as ?? "div"
 
   return (
-    <ElementTag
-      className={cn("h-full w-full relative", className)}
-      onMouseMove={handleMouseMove}
-      ref={containerRef}
-      {...props}
-    >
-      {Array.from({ length: repeatChildren }).map(() => (
-        <>{children}</>
+    <ElementTag ref={containerRef} className={cn(className, "image-trail")} {...props} onMouseMove={handleMouseMove}>
+      {Array.from({ length: repeatChildren }).map((_, index) => (
+        <ImageTrailItem key={index} className="image-trail-item">
+          {children}
+        </ImageTrailItem>
       ))}
     </ElementTag>
   )
@@ -232,14 +229,7 @@ export const ImageTrailItem = ({
 }: ImageTrailItemProps) => {
   const ElementTag = as ?? "div"
   return (
-    <ElementTag
-      {...props}
-      className={cn(
-        "absolute top-0 left-0 will-change-transform hidden",
-        className,
-        "image-trail-item"
-      )}
-    >
+    <ElementTag className={cn("image-trail-item", className)} {...props}>
       {children}
     </ElementTag>
   )

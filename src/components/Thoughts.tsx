@@ -1,97 +1,113 @@
+import { useState } from 'react';
+
 export function Thoughts() {
+  const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set());
+
   const thoughts = [
     {
       title: "The Art of Minimal Design",
       date: "September 15, 2024",
+      article: "Essay",
       excerpt: "Exploring how constraints can actually enhance creativity and lead to more impactful design solutions.",
-      readTime: "3 min read"
+      content: "In today's cluttered digital landscape, minimalism stands as a beacon of clarity. This comprehensive exploration delves into how constraints paradoxically unlock creativity, examining case studies from successful brands like Apple and Google. We'll explore the psychology behind minimal design, its impact on user cognition, and practical frameworks for implementing minimalist principles in your own work. From typography choices to whitespace utilization, every element serves a purpose in creating experiences that feel both sophisticated and accessible."
     },
     {
       title: "Building with Intention",
       date: "August 28, 2024",
+      article: "Guide",
       excerpt: "Why every design decision should have a purpose, and how to avoid feature creep in digital products.",
-      readTime: "5 min read"
+      content: "Feature creep is the silent killer of great products. This guide provides a systematic approach to intentional design, starting with clear problem definition and user research. Learn how to establish design principles that guide decision-making, create effective stakeholder alignment, and implement review processes that catch unnecessary additions before they compromise your product's core value proposition. Includes real-world examples and templates for maintaining design integrity throughout the development process."
     },
     {
       title: "The Future of Web Interactions",
       date: "August 12, 2024",
+      article: "Research",
       excerpt: "Thoughts on emerging web technologies and how they're shaping the next generation of user experiences.",
-      readTime: "4 min read"
+      content: "Web interactions are evolving rapidly with new technologies like WebXR, advanced gesture recognition, and AI-powered interfaces. This research piece examines current trends in interaction design, analyzes emerging patterns from leading tech companies, and predicts how these changes will reshape user expectations. We'll explore the implications for accessibility, performance, and cross-platform consistency, providing actionable insights for designers and developers preparing for the next wave of web innovation."
     },
     {
       title: "Accessibility as a Design Principle",
       date: "July 30, 2024",
+      article: "Article",
       excerpt: "Making the web more inclusive isn't just good practice—it's essential for reaching all users effectively.",
-      readTime: "6 min read"
+      content: "Accessibility isn't an afterthought—it's a fundamental design principle that benefits everyone. This article breaks down the business case for inclusive design, explores common accessibility barriers, and provides practical solutions for creating universally usable interfaces. From color contrast and keyboard navigation to screen reader compatibility and cognitive accessibility, we'll cover essential techniques that improve usability for all users while meeting WCAG guidelines and legal requirements."
     },
     {
       title: "Code as a Creative Medium",
       date: "July 18, 2024",
+      article: "Opinion",
       excerpt: "How programming can be a form of artistic expression, and why developers should embrace their creative side.",
-      readTime: "4 min read"
+      content: "Programming is often viewed as purely technical, but it's fundamentally a creative act. This opinion piece argues for recognizing code as a legitimate creative medium, exploring parallels between programming and traditional arts. We'll examine how elegant code structure mirrors good composition, how algorithmic thinking can generate unexpected solutions, and why embracing the artistic aspects of development leads to better software. Includes perspectives from creative coders and examples of code as art."
     }
   ];
+
+  const toggleExpanded = (index: number) => {
+    const newExpanded = new Set(expandedItems);
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index);
+    } else {
+      newExpanded.add(index);
+    }
+    setExpandedItems(newExpanded);
+  };
 
   return (
     <div className="min-h-screen pt-20 px-6">
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-medium">Thoughts</h1>
-          <div className="w-16 h-1 bg-primary mx-auto"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Reflections on design, development, and the intersection of technology and creativity.
-          </p>
+        <div className="space-y-4">
+          <h1 className="text-6xl font-medium font-apple-garamond">Thoughts</h1>
         </div>
 
         {/* Thoughts grid */}
         <div className="space-y-8">
-          {thoughts.map((thought, index) => (
-            <article key={index} className="border-2 border-border p-8 bg-card hover:border-primary/50 transition-colors cursor-pointer group">
-              <div className="space-y-4">
-                <div className="flex items-start justify-between gap-4">
-                  <h2 className="text-2xl font-medium group-hover:text-primary transition-colors">
-                    {thought.title}
-                  </h2>
-                  <span className="text-muted-foreground whitespace-nowrap">
-                    {thought.readTime}
-                  </span>
+          {thoughts.map((thought, index) => {
+            const isExpanded = expandedItems.has(index);
+            
+            return (
+              <article key={index} className="border-2 border-border p-6 bg-card hover:border-primary/50 transition-all duration-300 group">
+                <div className="space-y-3">
+                  <div className="space-y-1">
+                    <div className="flex items-start justify-between gap-4">
+                      <h2 className="text-xl font-medium group-hover:text-primary transition-colors">
+                        {thought.title}
+                      </h2>
+                    </div>
+                    
+                    <div className="flex items-center gap-4 text-muted-foreground font-ibm-mono text-sm">
+                      <time>{thought.date}</time>
+                      <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
+                      <span>{thought.article}</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    {thought.excerpt}
+                  </p>
+                  
+                  {isExpanded && (
+                    <div className="pt-3 border-t border-border">
+                      <p className="text-foreground leading-relaxed">
+                        {thought.content}
+                      </p>
+                    </div>
+                  )}
+                  
+                  <div className="pt-3">
+                    <button
+                      onClick={() => toggleExpanded(index)}
+                      className="inline-flex items-center gap-2 text-primary font-ibm-mono text-sm hover:gap-3 transition-all"
+                    >
+                      {isExpanded ? 'Collapse' : 'Expand'}
+                      <span className="w-4 h-4 flex items-center justify-center">
+                        {isExpanded ? '−' : '+'}
+                      </span>
+                    </button>
+                  </div>
                 </div>
-                
-                <div className="flex items-center gap-4 text-muted-foreground">
-                  <time>{thought.date}</time>
-                  <div className="w-1 h-1 bg-muted-foreground rounded-full"></div>
-                  <span>Article</span>
-                </div>
-                
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  {thought.excerpt}
-                </p>
-                
-                <div className="pt-4">
-                  <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
-                    Read more
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Call to action */}
-        <div className="text-center py-12">
-          <div className="border-2 border-border p-8 bg-card">
-            <h3 className="text-xl font-medium mb-4">Want to discuss these ideas?</h3>
-            <p className="text-muted-foreground mb-6">
-              I'd love to hear your thoughts and engage in meaningful conversations about design and development.
-            </p>
-            <div className="px-6 py-3 bg-primary text-primary-foreground border-2 border-primary hover:bg-primary/90 transition-colors cursor-pointer inline-block">
-              Get in touch
-            </div>
-          </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </div>

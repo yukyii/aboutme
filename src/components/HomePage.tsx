@@ -104,11 +104,10 @@ export function HomePage({ activeSection }: HomePageProps) {
                 <br />
                 <span className="text-primary">Your Name</span>
               </h1>
-              <div className="w-16 h-1 bg-primary"></div>
             </div>
             
             <div className="space-y-6">
-              <p className="text-xl text-muted-foreground max-w-lg">
+              <p className="text-base text-muted-foreground max-w-lg">
                 A creative professional passionate about building meaningful digital experiences 
                 that bridge the gap between design and technology.
               </p>

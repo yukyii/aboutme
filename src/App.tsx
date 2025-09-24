@@ -4,6 +4,7 @@ import { HomePage } from './components/HomePage';
 import { Resume } from './components/Resume';
 import { About } from './components/About';
 import { Thoughts } from './components/Thoughts';
+import { Footer } from './components/Footer';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('Home');
@@ -69,6 +70,11 @@ export default function App() {
           <Thoughts />
         </section>
       </main>
+      <Footer
+        activeSection={activeSection}
+        onMouseEnterFooter={() => setActiveSection('Footer')}
+        onMouseLeaveFooter={() => {}}
+      />
     </div>
   );
 }

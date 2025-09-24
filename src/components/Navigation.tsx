@@ -39,7 +39,7 @@ export function Navigation({ activeSection, setActiveSection, onSectionClick }: 
         <div className="flex items-center justify-between">
           <button 
             onClick={() => handleItemClick('Home')}
-            className="font-medium hover:text-primary/80 transition-colors"
+            className="font-medium hover:text-primary/80 transition-colors font-ibm-mono"
           >
             Your Name
           </button>
@@ -50,7 +50,7 @@ export function Navigation({ activeSection, setActiveSection, onSectionClick }: 
                 key={item}
                 data-section={item}
                 onClick={() => handleItemClick(item)}
-                className={`relative px-3 py-2 transition-colors ${
+                className={`relative px-3 py-2 transition-colors font-ibm-mono ${
                   activeSection === item 
                     ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
