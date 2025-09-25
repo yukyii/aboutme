@@ -6,6 +6,7 @@ interface TrailImage {
   x: number;
   y: number;
   opacity: number;
+  src: string; // Add src to store the image source
 }
 
 interface HomePageProps {
@@ -13,10 +14,23 @@ interface HomePageProps {
 }
 
 export function HomePage({ activeSection }: HomePageProps) {
+  // Add your custom images here
+  const images = [
+    "/imgs/cards.png",
+    "/imgs/commuters-eye.png",
+    "/imgs/gamedev.png"
+    // Add more images as needed
+  ];
+
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [trailImages, setTrailImages] = useState<TrailImage[]>([]);
   const lastImagePos = useRef({ x: 0, y: 0 });
-  const homeRef = useRef<HTMLDivElement>(null); // Add ref for home section
+  const homeRef = useRef<HTMLDivElement>(null);
+
+  // Function to get random image from array
+  const getRandomImage = () => {
+    return images[Math.floor(Math.random() * images.length)];
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -56,7 +70,8 @@ export function HomePage({ activeSection }: HomePageProps) {
           id: Date.now(),
           x: currentX,
           y: currentY,
-          opacity: 1
+          opacity: 1,
+          src: getRandomImage() // Get random image from array
         };
         
         setTrailImages(prev => [...prev.slice(-8), newImage]); // Keep last 9 images
@@ -101,7 +116,7 @@ export function HomePage({ activeSection }: HomePageProps) {
           }}
         >
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1626444170626-303f62d83718?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMHNoYXBlc3xlbnwxfHx8fDE3NTg1ODczMDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src={img.src} // Use the stored image source
             alt=""
             className="w-12 h-12 object-cover border-2 border-primary/20"
             style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
@@ -131,8 +146,8 @@ export function HomePage({ activeSection }: HomePageProps) {
             </div>
           </div>
 
-          {/* Right side - Visual element */}
-          <div className="relative">
+          {/* Right side - Visual element - commented out */}
+          {/* <div className="relative">
             <div className="aspect-square max-w-md mx-auto relative">
               <div className="absolute inset-0 border-4 border-primary/20 transform rotate-12"></div>
               <div className="absolute inset-4 border-2 border-primary/40 transform -rotate-6"></div>
@@ -142,7 +157,7 @@ export function HomePage({ activeSection }: HomePageProps) {
               <div className="absolute bottom-1/4 left-1/4 w-12 h-12 border-4 border-primary"></div>
               <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-primary/60 transform -translate-x-1/2 -translate-y-1/2 rotate-45"></div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

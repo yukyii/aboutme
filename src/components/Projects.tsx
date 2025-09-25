@@ -68,7 +68,7 @@ export function Projects() {
       title: "Units of Measurement",
       date: "Spring 2025",
       article: "Design + Theory",
-      excerpt: "Units of Measurement builds on Crawford's Atlas of AI to reimagine the brand logos of four familiar names in Big Tech. Crawford explored AI development and impact by focusing on breadth: she identified links across a range of systems, using experiences from daily life as context. In a similar vein, the redesigned logos make use of visual art to express the nuance of supply chains. Beyond this, the series focuses on the urban consumer, exploring the impact of marketing on the conceptualization of use—and prospective uses—of current technologies.",
+      excerpt: "Units of Measurement builds on Crawford's Atlas of AI to reimagine the brand logos of four names in Big Tech. Crawford explored AI development and impact by identifying links across a range of systems, using experiences from daily life as context. In a similar vein, the redesigned logos make use of visual art to express the nuance of supply chains. Beyond this, the series focuses on the urban consumer, exploring the impact of marketing on the conceptualization of use—and prospective uses—of current technologies.",
       content: "/pdfs/UnitsofMeasurement-YukYiWong.pdf",
       contentType: "pdf" as const
     },
@@ -81,6 +81,14 @@ export function Projects() {
       link: "https://wwoc-2025.github.io/wwoc-health/"
     },
     {
+      title: "La Magia Has No Age",
+      date: "Summer 2025",
+      article: "Pitch Deck",
+      excerpt: "Won 2nd place for Disney Experiences' pitch competition, developing an emotional campaign that spanned digital and experiential executions to strengthen brand affinity for Walt Disney World Resort.",
+      content: "/pdfs/DisneyExperiences-AfterTenCreative.pdf",
+      contentType: "pdf" as const
+    },
+    {
       title: "Site 27",
       date: "Spring 2025",
       article: "Video Game",
@@ -90,23 +98,22 @@ export function Projects() {
       link: "https://hjkimowl.itch.io/site27"
     },
     {
-      title: "Haptics project see SRI slides etc",
+      title: "Examining the impact of haptics on illusions of agency",
       date: "Summer 2024",
       article: "Simulation",
-      excerpt: "XXX",
-      content: "Show images",
-      contentType: "text" as const
+      excerpt: "Much of our digital world today thrives on maximizing engagement through deliberate design. However, consumers are often left unaware of the extent to which this design truly impacts their decisions. We analyzed this phenomenon by looking at how haptic and visual feedback could direct and mislead users' sense of agency. Taking inspiration from ‘game juice’, we bring to light the invisible ties between our choices and our virtual environment.",
+      imageSrc: "/imgs/hci-startscene-example.png",
+      link: "https://github.com/aryapsinha/mazehouse"
     },
     {
-      title: "Birds in NYC",
+      title: "User Interface Design",
       date: "Spring 2025",
-      article: "Educational Website",
-      excerpt: "describe refer to UI notes.",
-      content: "show snapshots of website?",
+      article: "Websites",
+      excerpt: "Websites built include an educational platform to teach people in New York City how to recognize birds in the city by sight and by sound, as well as a tool to find cafes near campus to study at. HTML, CSS, JS, Python.",
       contentType: "text" as const
     },
     {
-      title: "Innovation and Design Lab Product Designs",
+      title: "Innovation and Design Lab",
       date: "Fall 2024",
       article: "Design Thinking",
       excerpt: "In this class, I learned to envision inventive applications and deliver meaningful experiences to end users. Some activities include brainstorming applications for autonomous agents using bisociation, and designing a wireframe for an app which includes a creative exploration of interactive design components.",
@@ -119,12 +126,6 @@ export function Projects() {
       excerpt: "A satirical film borne from my curiosity about what could happen if we did not care about assigning moral status to AI and other sophisticated machines.",
       imageSrc: "public/imgs/justprogramming.png",
       link: "https://youtu.be/AVxZSSJfgoY"
-    },
-    {
-      title: "This Website",
-      date: "Fall 2025",
-      article: "Website",
-      excerpt: "Expressing my personality through creative web design."
     }
   ];
 

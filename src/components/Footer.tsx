@@ -22,7 +22,6 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
     let lastX = 0, lastY = 0;
 
     const onMouseMove = (e: MouseEvent) => {
-      // Check if mouse is within the footer section bounds
       if (footerRef.current) {
         const rect = footerRef.current.getBoundingClientRect();
         const isWithinFooter = (
@@ -32,9 +31,9 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
           e.clientY <= rect.bottom
         );
         
-        if (!isWithinFooter) {
-          return; // Don't create trail if mouse is outside footer section
-        }
+        // if (!isWithinFooter) {
+        //   return; 
+        // }
       }
 
       const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
@@ -62,7 +61,7 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
     if (activeSection !== 'Footer') {
       setTrail([]);
     }
-    // No dependencies on setTrail itself
+
   }, [activeSection]);
 
   // Fade oldest trail icon out

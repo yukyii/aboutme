@@ -13,49 +13,49 @@ export function Resume() {
       company: "Design Bridge and Partners (WPP)",
       period: "Jun. 2025 - Aug. 2025",
       description: "Informed brand positioning to drive consumer acquisition for CPG brands (e.g. Kenvue’s Johnson’s Baby, Heineken, Don Julio, Tyson) through market research across 90 brands. Delivered product differentiation strategies by writing creative briefs informed by semiotics, packaging design and cultural trends.",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"]
+      technologies: ["Placeholder"]
     },
     {
       title: "Multicultural Advertising Intern Program Fellow",
       company: "4A's Foundation",
       period: "Jun. 2025 - Aug. 2025",
-      description: "Won 2nd Place in a two-month Disney Experiences team competition, developing an emotional campaign that spanned digital and experiential executions to strengthen brand affinity for Walt Disney World Resort.",
-      technologies: ["React", "JavaScript", "CSS", "WordPress"]
+      description: "Selected for a 22-week hybrid fellowship that develops talents in the marketing and advertising industry. Won 2nd place for Disney Experiences' campaign pitch as part of team After Ten Creative.",
+      technologies: ["Placeholder"]
     },
     {
       title: "HCI Researcher",
       company: "Barnard College",
       period: "May 2024 - Dec. 2024",
       description: "Designed and presented simulations built on Godot Engine 4.3 to explore haptic feedback impact on user agency.",
-      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+      technologies: ["Placeholder"]
     },
     {
       title: "Vice-President",
       company: "Columbia University Gaming Group",
       period: "Sep. 2024 - Present",
       description: "Delivered industry mentorship for 70+ aspiring game developers by engaging Xbox professionals as judges for 17 competing teams. Achieved 100% year-over-year funding growth for 150+ member organization by negotiating strategic partnerships. Pioneered Women in Gaming industry panel involving PlayStation and Activision Blizzard leaders, attracting 40+ participants.",
-      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+      technologies: ["Placeholder"]
     },
     {
       title: "President",
       company: "Columbia University Singapore Students' Association",
       period: "May 2023 - Present",
       description: "Accomplished organizational transformation by scaling event capacity from 40 to 90 attendees (10+ events annually) and saw 150% social media growth. Scaled organizational reach by 300%, expanding from 1 to 5+ corporate collaborations.",
-      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+      technologies: ["Placeholder"]
     },
     {
       title: "Special Projects Intern",
       company: "Skillseed",
       period: "Jun. 2023 - Aug. 2023",
       description: "Identified key barriers to social mobility through interviews, surveys and nonprofit research to inform client workshops. Informed 2024 organizational strategy through analysis of 3 years of operational data.",
-      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+      technologies: ["Placeholder"]
     },
     {
       title: "Research and Consulting Intern",
       company: "Action for Change in Southeast Asia (ActSEA)",
       period: "Mar. 2022 - Aug. 2022",
       description: "Executed quantitative impact assessments across 3 countries (Afghanistan, Myanmar, Philippines), analyzing beneficiary datasets of 5,000+ individuals using Excel to evaluate humanitarian program effectiveness for Save the Children and People In Need.",
-      technologies: ["HTML", "CSS", "JavaScript", "Node.js"]
+      technologies: ["Placeholder"]
     }
   ];
 
@@ -106,7 +106,7 @@ export function Resume() {
                 
                 <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
                 
-                <div className="flex flex-wrap gap-2">
+                {/* <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech, techIndex) => (
                     <span 
                       key={techIndex}
@@ -115,7 +115,7 @@ export function Resume() {
                       {tech}
                     </span>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

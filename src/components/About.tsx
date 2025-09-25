@@ -28,7 +28,7 @@ export function About() {
 
               <a href="https://www.linkedin.com/in/yukyi/">
                 <p className="font-medium pb-2 font-ibm-mono">
-                  Lets connect!
+                  Lets connect ✰
                 </p>
               </a>
 
@@ -54,7 +54,7 @@ export function About() {
           {/* Experience */}
           <div className="space-y-8">
             <div className="relative">
-              <h3 className="font-medium pb-2 font-ibm-mono">Where I've Been...</h3>
+              <h3 className="font-medium pb-2 font-ibm-mono">Things I've been up to...</h3>
               <div className="absolute bottom-0 left-0 right-0 border-b-2 border-border"></div>
             </div>
             <div className="py-1">
