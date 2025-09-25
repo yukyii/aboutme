@@ -109,7 +109,7 @@ export function Projects() {
       title: "Innovation and Design Lab Product Designs",
       date: "Fall 2024",
       article: "Design Thinking",
-      excerpt: "Two pieces of work I produced in the class. In the first piece, I brainstormed applications for autonomous agents using bisociation, drawing inspiration from a bee and a periscope. In the second, I drew a wireframe for an app about social media and productivity, which includes my own creative exploration of interactive design components.",
+      excerpt: "In this class, I learned to envision inventive applications and deliver meaningful experiences to end users. Some activities include brainstorming applications for autonomous agents using bisociation, and designing a wireframe for an app which includes a creative exploration of interactive design components.",
       imageSrc: "public/imgs/innovation-design-yukyi.png"
     },
     {
