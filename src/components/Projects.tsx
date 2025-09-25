@@ -1,57 +1,126 @@
 import { useState } from 'react';
 
+// Content renderer component to handle different content types
+interface ContentRendererProps {
+  content: string;
+  contentType: 'text' | 'pdf' | 'link' | 'video';
+}
+
+const ContentRenderer: React.FC<ContentRendererProps> = ({ content, contentType }) => {
+  switch (contentType) {
+    case 'pdf':
+      return (
+        <div className="pdf-viewer-container">
+          <iframe 
+            src={content}
+            width="100%" 
+            height="600px"
+            className="border-2 border-border rounded-lg shadow-lg"
+            title="PDF Document"
+          />
+        </div>
+      );
+    case 'link':
+      return (
+        <a 
+          href={content} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-primary hover:underline break-all"
+        >
+          {content}
+        </a>
+      );
+    case 'video': 
+      return (
+        <div className="aspect-video w-full mb-4 rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            src={content}
+            title="Video Player"
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      );
+    case 'text':
+    default:
+      return <p className="text-foreground leading-relaxed">{content}</p>;
+  }
+};
+
 export function Projects() {
   const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set());
+
+  type Project = {
+    title: string;
+    date: string;
+    article: string;
+    excerpt: string;
+    content?: string;
+    contentType?: 'text' | 'pdf' | 'link' | 'video';
+    imageSrc?: string; 
+    videoSrc?: string;
+    link?: string;
+  };
 
   const Projects = [
     {
       title: "Units of Measurement",
       date: "Spring 2025",
       article: "Design + Theory",
-      excerpt: "Units of Measurement builds on Crawford’s Atlas of AI to reimagine the brand logos of four familiar names in Big Tech. Crawford explored AI development and impact by focusing on breadth: she identified links across a range of systems, using experiences from daily life as context. In a similar vein, the redesigned logos make use of visual art to express the nuance of supply chains. Beyond this, the series focuses on the urban consumer, exploring the impact of marketing on the conceptualization of use—and prospective uses—of current technologies.",
-      content: "Insert pdf of slides here."
+      excerpt: "Units of Measurement builds on Crawford's Atlas of AI to reimagine the brand logos of four familiar names in Big Tech. Crawford explored AI development and impact by focusing on breadth: she identified links across a range of systems, using experiences from daily life as context. In a similar vein, the redesigned logos make use of visual art to express the nuance of supply chains. Beyond this, the series focuses on the urban consumer, exploring the impact of marketing on the conceptualization of use—and prospective uses—of current technologies.",
+      content: "/pdfs/UnitsofMeasurement-YukYiWong.pdf",
+      contentType: "pdf" as const
     },
     {
       title: "Inside a Commuter's Eye: Daily Health Ads in the Manhattan Subway",
       date: "Spring 2025",
       article: "Data Journalism",
-      excerpt: "XXX",
-      content: "https://wwoc-2025.github.io/wwoc-health/"
+      excerpt: "An interactive feature article that investigates health advertising in the NYC subway, combining journalistic and computational skills.",
+      imageSrc: "/imgs/commuters-eye.png",
+      link: "https://wwoc-2025.github.io/wwoc-health/"
     },
     {
       title: "Site 27",
       date: "Spring 2025",
       article: "Video Game",
       excerpt: "A top-down maze horror game about a scientist in a ruined laboratory overrun by its latest experiment.",
-      content: "https://hjkimowl.itch.io/site27"
+      videoSrc: "https://www.youtube.com/embed/4TtxbjLVUpo?si=whP9l0mEImEjxdhD",
+      contentType: "video" as const,
+      link: "https://hjkimowl.itch.io/site27"
     },
     {
       title: "Haptics project see SRI slides etc",
       date: "Summer 2024",
       article: "Simulation",
       excerpt: "XXX",
-      content: "Show images"
+      content: "Show images",
+      contentType: "text" as const
     },
     {
       title: "Birds in NYC",
       date: "Spring 2025",
       article: "Educational Website",
       excerpt: "describe refer to UI notes.",
-      content: "show snapshots of website?"
+      content: "show snapshots of website?",
+      contentType: "text" as const
     },
     {
       title: "Innovation and Design Lab Product Designs",
       date: "Fall 2024",
       article: "Design Thinking",
       excerpt: "xx about brainstorming etc my drawings",
-      content: "show snapshots of drawings of app etc annotate"
+      content: "show snapshots of drawings of app etc annotate",
+      contentType: "text" as const
     },
     {
       title: "he's just programming",
       date: "Spring 2025",
       article: "Film",
-      excerpt: "A satirical film borne from my curiosity about what could happen if we did not care about assigning any form of moral status to AI and sophisticated machines.",
-      content: "XXX embed? https://youtu.be/AVxZSSJfgoY"
+      excerpt: "A satirical film borne from my curiosity about what could happen if we did not care about assigning moral status to AI and other sophisticated machines.",
+      content: "https://youtu.be/AVxZSSJfgoY",
+      contentType: "link" as const
     }
   ];
 
@@ -101,12 +170,64 @@ export function Projects() {
                   
                   {isExpanded && (
                     <div className="pt-3 border-t border-border">
-                      <p className="text-foreground leading-relaxed">
-                        {project.content}
-                      </p>
+                      {/* Render image and link for projects with imageSrc */}
+                      {project.imageSrc && (
+                        <div className="flex flex-col items-center mb-6 space-y-6">
+                          <img 
+                            src={project.imageSrc} 
+                            alt={project.title}
+                            className="w-[350px] max-w-full rounded-lg shadow mb-2"
+                          />
+                          {project.link && (
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-primary hover:underline text-base font-ibm-mono mt-2"
+                            >
+                              View ↗
+                            </a>
+                          )}
+                        </div>
+                      )}
+
+                      {project.videoSrc && (
+                      <>
+                        <div className="w-full mb-8 rounded-lg overflow-hidden shadow-lg" style={{ height: '400px' }}>
+                          <iframe
+                            src={project.videoSrc}
+                            title={project.title}
+                            className="w-full h-full"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        </div>
+                        {project.link && (
+                          <div className="text-center mt-12 mb-8">  {/* increased margin-bottom from mb-6 to mb-8 */}
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-primary hover:underline text-base font-ibm-mono"
+                            >
+                              View ↗
+                            </a>
+                          </div>
+                        )}
+                      </>
+                    )}
+                      
+                      {/* Render content using ContentRenderer */}
+                      {project.content && project.contentType && (
+                        <ContentRenderer 
+                          content={project.content} 
+                          contentType={project.contentType} 
+                        />
+                      )}
                     </div>
                   )}
-                  
+
                   <div className="pt-3">
                     <button
                       onClick={() => toggleExpanded(index)}

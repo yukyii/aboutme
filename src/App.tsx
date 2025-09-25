@@ -5,7 +5,6 @@ import { Resume } from './components/Resume';
 import { About } from './components/About';
 import { Projects } from './components/Projects';
 import { Footer } from './components/Footer';
-import './styles/fonts/Dotemp-8bit.ttf';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('Home');
@@ -29,7 +28,7 @@ export default function App() {
       // Don't update activeSection during programmatic scrolling
       if (isScrolling) return;
       
-      const sections = ['home', 'resume', 'about', 'thoughts'];
+      const sections = ['home', 'resume', 'about', 'projects'];
       const scrollPosition = window.scrollY + 100; // Offset for navbar
 
       for (const section of sections) {
@@ -67,7 +66,7 @@ export default function App() {
         <section id="about">
           <About />
         </section>
-        <section id="thoughts">
+        <section id="projects">
           <Projects />
         </section>
       </main>

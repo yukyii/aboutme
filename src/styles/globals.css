@@ -244,16 +244,6 @@ html {
 
 .grid-aboutme {
   display: grid;
-  /* Define two columns: one taking 2 parts, the other 1 part, 
-     creating a 2/3 and 1/3 ratio */
   grid-template-columns: 2fr 1fr; 
-  gap: 20px; /* Adjust the gap as needed */
-}
-
-.container-about-one {
-  padding: 20px;
-}
-
-.container-about-two {
-
+  gap: 20px;
 }
