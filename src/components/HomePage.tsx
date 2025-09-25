@@ -109,8 +109,9 @@ export function HomePage({ activeSection }: HomePageProps) {
             <div className="space-y-6">
               <p className="text-base text-muted-foreground max-w-lg">
                 I'm a senior at Barnard College, Columbia University studying Cognitive Science and Sociology.
-                I am also a storyteller, inquirer and creative curious about the intersection between social science 
-                and emerging technologies.
+                My experiences span brand strategy, social work, HCI research and product design. 
+                With a multidisciplinary background, finding connections between social science 
+                and emerging technologies is what excites me most.
               </p>
             </div>
           </div>

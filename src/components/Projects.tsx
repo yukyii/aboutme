@@ -121,6 +121,12 @@ export function Projects() {
       excerpt: "A satirical film borne from my curiosity about what could happen if we did not care about assigning moral status to AI and other sophisticated machines.",
       content: "https://youtu.be/AVxZSSJfgoY",
       contentType: "link" as const
+    },
+    {
+      title: "This Website",
+      date: "Fall 2025",
+      article: "Website",
+      excerpt: "Expressing my personality through creative web design."
     }
   ];
 
@@ -183,7 +189,7 @@ export function Projects() {
                               href={project.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline text-base font-ibm-mono mt-2"
+                              className="text-primary hover:underline text-base font-ibm-mono mt-4"
                             >
                               View ↗
                             </a>
@@ -228,17 +234,33 @@ export function Projects() {
                     </div>
                   )}
 
-                  <div className="pt-3">
-                    <button
-                      onClick={() => toggleExpanded(index)}
-                      className="inline-flex items-center gap-2 text-primary font-ibm-mono text-sm hover:gap-3 transition-all"
-                    >
-                      {isExpanded ? 'Collapse' : 'Expand'}
-                      <span className="w-4 h-4 flex items-center justify-center">
-                        {isExpanded ? '−' : '+'}
-                      </span>
-                    </button>
-                  </div>
+                  {project.content && (
+                    <div className="pt-3">
+                      <button
+                        onClick={() => toggleExpanded(index)}
+                        className="inline-flex items-center gap-2 text-primary font-ibm-mono text-sm hover:gap-3 transition-all"
+                      >
+                        {isExpanded ? 'Collapse' : 'Expand'}
+                        <span className="w-4 h-4 flex items-center justify-center">
+                          {isExpanded ? '−' : '+'}
+                        </span>
+                      </button>
+                    </div>
+                  )}
+
+                  {project.link && (
+                    <div className="pt-3">
+                      <button
+                        onClick={() => toggleExpanded(index)}
+                        className="inline-flex items-center gap-2 text-primary font-ibm-mono text-sm hover:gap-3 transition-all"
+                      >
+                        {isExpanded ? 'Collapse' : 'Expand'}
+                        <span className="w-4 h-4 flex items-center justify-center">
+                          {isExpanded ? '−' : '+'}
+                        </span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </article>
             );
