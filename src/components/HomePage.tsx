@@ -16,12 +16,27 @@ export function HomePage({ activeSection }: HomePageProps) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [trailImages, setTrailImages] = useState<TrailImage[]>([]);
   const lastImagePos = useRef({ x: 0, y: 0 });
+  const homeRef = useRef<HTMLDivElement>(null); // Add ref for home section
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // Only create trail images when on homepage
       if (activeSection !== 'Home') {
         return;
+      }
+
+      // Check if mouse is within the home section bounds
+      if (homeRef.current) {
+        const rect = homeRef.current.getBoundingClientRect();
+        const isWithinHome = (
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom
+        );
+        
+        if (!isWithinHome) {
+          return; // Don't create trail if mouse is outside home section
+        }
       }
 
       const currentX = e.clientX;
@@ -72,7 +87,7 @@ export function HomePage({ activeSection }: HomePageProps) {
   }, [activeSection]);
 
   return (
-    <div className="min-h-screen pt-20 px-6 overflow-hidden relative">
+    <div ref={homeRef} className="min-h-screen pt-20 px-6 overflow-hidden relative">
       {/* Trail images */}
       {trailImages.map((img) => (
         <div

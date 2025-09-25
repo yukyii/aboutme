@@ -13,41 +13,57 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
     { x: number; y: number; key: number; icon: string }[]
   >([]);
   const iconSeq = useRef(0); // Sequence tracker
+  const footerRef = useRef<HTMLElement>(null); // Add ref for footer section
   const maxTrailLength = 10;
   const trailInterval = 12;
 
   useEffect(() => {
-  if (activeSection !== 'Footer') return;
-  let lastX = 0, lastY = 0;
+    if (activeSection !== 'Footer') return;
+    let lastX = 0, lastY = 0;
 
-  const onMouseMove = (e: MouseEvent) => {
-    const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
-    if (dist < trailInterval) return;
-    lastX = e.clientX;
-    lastY = e.clientY;
+    const onMouseMove = (e: MouseEvent) => {
+      // Check if mouse is within the footer section bounds
+      if (footerRef.current) {
+        const rect = footerRef.current.getBoundingClientRect();
+        const isWithinFooter = (
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom
+        );
+        
+        if (!isWithinFooter) {
+          return; // Don't create trail if mouse is outside footer section
+        }
+      }
 
-    setTrail((prev) => [
-      ...prev.slice(-maxTrailLength + 1),
-      {
-        x: e.clientX,
-        y: e.clientY,
-        key: Date.now() + Math.random(),
-        icon: icons[iconSeq.current % icons.length],
-      },
-    ]);
-    iconSeq.current++;
-  };
+      const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+      if (dist < trailInterval) return;
+      lastX = e.clientX;
+      lastY = e.clientY;
 
-  window.addEventListener('mousemove', onMouseMove);
-  return () => window.removeEventListener('mousemove', onMouseMove);
-}, [activeSection, icons]);
+      setTrail((prev) => [
+        ...prev.slice(-maxTrailLength + 1),
+        {
+          x: e.clientX,
+          y: e.clientY,
+          key: Date.now() + Math.random(),
+          icon: icons[iconSeq.current % icons.length],
+        },
+      ]);
+      iconSeq.current++;
+    };
+
+    window.addEventListener('mousemove', onMouseMove);
+    return () => window.removeEventListener('mousemove', onMouseMove);
+  }, [activeSection, icons]);
 
   useEffect(() => {
-  if (activeSection !== 'Footer') {
-    setTrail([]);
-  }
-  // No dependencies on setTrail itself
-}, [activeSection]);
+    if (activeSection !== 'Footer') {
+      setTrail([]);
+    }
+    // No dependencies on setTrail itself
+  }, [activeSection]);
 
   // Fade oldest trail icon out
   useEffect(() => {
@@ -58,7 +74,12 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
   }, []);
 
   return (
-    <footer className="bg-card" onMouseEnter={onMouseEnterFooter} onMouseLeave={onMouseLeaveFooter} >
+    <footer 
+      ref={footerRef}
+      className="bg-card" 
+      onMouseEnter={onMouseEnterFooter} 
+      onMouseLeave={onMouseLeaveFooter}
+    >
       {activeSection === 'Footer' && (
         <div className="fixed left-0 top-0 w-full h-full pointer-events-none z-50">
           {trail.map((item, idx) => (
@@ -87,8 +108,12 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
 
       <div className="max-w-4xl mx-auto px-6 py-20">
         <div className="text-center space-y-8">
-          <h3 className="text-2xl font-dotemp py-22">Thanks for visiting!</h3>
-          <div className="flex items-center justify-center gap-8">
+          <div className="py-22">
+            <h3 className="text-2xl font-dotemp">Thanks for visiting!</h3>
+            <span className="text-muted-foreground font-medium font-ibm-mono py-22">Wave goodbye with your mouse?</span>
+          </div>
+          
+          <div className="flex items-center justify-center gap-8 py-20">
             <a
               href="mailto:yukyiwng@gmail.com"
               className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"

@@ -10,7 +10,6 @@ const images = [
 ];
 
 export function FilmReelCarousel() {
-  // Duplicate images multiple times for perfect seamless loop
   const extendedImages = [...images, ...images, ...images, ...images];
 
   return (

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-// Content renderer component to handle different content types
 interface ContentRendererProps {
   content: string;
   contentType: 'text' | 'pdf' | 'link' | 'video';
@@ -210,7 +209,7 @@ export function Projects() {
                           />
                         </div>
                         {project.link && (
-                          <div className="text-center mt-12 mb-8">  {/* increased margin-bottom from mb-6 to mb-8 */}
+                          <div className="text-center mt-12 mb-8">
                             <a
                               href={project.link}
                               target="_blank"
@@ -224,7 +223,6 @@ export function Projects() {
                       </>
                     )}
                       
-                      {/* Render content using ContentRenderer */}
                       {project.content && project.contentType && (
                         <ContentRenderer 
                           content={project.content} 

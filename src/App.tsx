@@ -16,20 +16,18 @@ export default function App() {
       setIsScrolling(true);
       element.scrollIntoView({ behavior: 'smooth' });
       
-      // Reset scrolling flag after animation completes
       setTimeout(() => {
         setIsScrolling(false);
-      }, 800); // Slightly longer than typical smooth scroll duration
+      }, 800);
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      // Don't update activeSection during programmatic scrolling
       if (isScrolling) return;
       
       const sections = ['home', 'resume', 'about', 'projects'];
-      const scrollPosition = window.scrollY + 100; // Offset for navbar
+      const scrollPosition = window.scrollY + 100; 
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -44,7 +42,7 @@ export default function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isScrolling]);
