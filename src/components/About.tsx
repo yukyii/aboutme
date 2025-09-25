@@ -25,6 +25,13 @@ export function About() {
                 and President of the Singapore Students' Association, I'm always exploring ways to connect people 
                 over things that bring us joy.
               </p>
+
+              <a href="https://www.linkedin.com/in/yukyi/">
+                <p className="font-medium pb-2 font-ibm-mono">
+                  Lets connect!
+                </p>
+              </a>
+
             </div>
           </div>
 
@@ -43,9 +50,8 @@ export function About() {
           </div>
         </div>
 
-        {/* Bottom row with What I Value and Quick Facts */}
         <div className="grid grid-cols-1 grid-aboutme gap-12 mt-12">
-          {/* Values */}
+          {/* Experience */}
           <div className="space-y-8">
             <div className="relative">
               <h3 className="font-medium pb-2 font-ibm-mono">Where I've Been...</h3>
@@ -60,12 +66,12 @@ export function About() {
           {/* Quick facts */}
           <div className="border-2 border-border p-6 bg-card">
             <h3 className="font-medium mb-4 text-primary font-ibm-mono">Quick Facts</h3>
-            <div className="space-y-3 text-muted-foreground">
+            <div className="space-y-3 text-muted-foreground font-ibm-mono">
               <div className="flex justify-between">
                 <span className="flex items-center gap-2">
                   <img src="/icons/location.svg" alt="Location pin" className="w-4 h-4" />
                 </span>
-                <span>NYC</span>
+                <span>New York City</span>
               </div>
               <div className="flex justify-between">
                 <span className="flex items-center gap-2">
@@ -77,13 +83,13 @@ export function About() {
                 <span className="flex items-center gap-2">
                   <img src="/icons/heart.svg" alt="Likes" className="w-4 h-4" />
                 </span>
-                <span>Boardgames, Horror</span>
+                <span>Boardgames, Satire</span>
               </div>
               <div className="flex justify-between">
                 <span className="flex items-center gap-2">
                   <img src="/icons/heart-broken.svg" alt="Dislikes" className="w-4 h-4" />
                 </span>
-                <span>Horror</span>
+                <span>Jumpscares</span>
               </div>
             </div>
           </div>
