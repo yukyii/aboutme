@@ -31,9 +31,13 @@ export function About() {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* Profile image placeholder */}
-            <div className="border-4 border-primary/20 p-4 bg-card">
-              <div className="aspect-square bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center">
-                <div className="w-16 h-16 border-4 border-primary transform rotate-45"></div>
+            <div className="border-2 border-primary/20 p-4 bg-card">
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src="/imgs/profile.png" 
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
@@ -58,19 +62,27 @@ export function About() {
             <h3 className="font-medium mb-4 text-primary font-ibm-mono">Quick Facts</h3>
             <div className="space-y-3 text-muted-foreground">
               <div className="flex justify-between">
-                <span>Location</span>
+                <span className="flex items-center gap-2">
+                  <img src="/icons/location.svg" alt="Location pin" className="w-4 h-4" />
+                </span>
                 <span>NYC</span>
               </div>
               <div className="flex justify-between">
-                <span>Hometown</span>
+                <span className="flex items-center gap-2">
+                  <img src="/icons/home.svg" alt="Hometown" className="w-4 h-4" />
+                </span>
                 <span>Singapore</span>
               </div>
               <div className="flex justify-between">
-                <span>Likes</span>
+                <span className="flex items-center gap-2">
+                  <img src="/icons/heart.svg" alt="Likes" className="w-4 h-4" />
+                </span>
                 <span>Boardgames, Horror</span>
               </div>
               <div className="flex justify-between">
-                <span>Dislikes</span>
+                <span className="flex items-center gap-2">
+                  <img src="/icons/heart-broken.svg" alt="Dislikes" className="w-4 h-4" />
+                </span>
                 <span>Horror</span>
               </div>
             </div>

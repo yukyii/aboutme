@@ -1,12 +1,12 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const images = [
-  'public/imgs/yy-crafting.jpg',
-  'public/imgs/student-govt.png',
-  'public/imgs/skillseed.PNG',
-  'public/imgs/lionjam-org.png',
-  'public/imgs/ssa-booth.JPG',
-  'public/imgs/women-in-gaming-speaker.png'
+  '/imgs/yy-crafting.jpg',
+  '/imgs/student-govt.png',
+  '/imgs/skillseed.PNG',
+  '/imgs/lionjam-org.png',
+  '/imgs/ssa-booth.JPG',
+  '/imgs/women-in-gaming-speaker.png'
 ];
 
 export function FilmReelCarousel() {
