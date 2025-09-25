@@ -109,17 +109,16 @@ export function Projects() {
       title: "Innovation and Design Lab Product Designs",
       date: "Fall 2024",
       article: "Design Thinking",
-      excerpt: "xx about brainstorming etc my drawings",
-      content: "show snapshots of drawings of app etc annotate",
-      contentType: "text" as const
+      excerpt: "Two pieces of work I produced in the class. In the first piece, I brainstormed applications for autonomous agents using bisociation, drawing inspiration from a bee and a periscope. In the second, I drew a wireframe for an app about social media and productivity, which includes my own creative exploration of interactive design components.",
+      imageSrc: "public/imgs/innovation-design-yukyi.png"
     },
     {
       title: "he's just programming",
       date: "Spring 2025",
       article: "Film",
       excerpt: "A satirical film borne from my curiosity about what could happen if we did not care about assigning moral status to AI and other sophisticated machines.",
-      content: "https://youtu.be/AVxZSSJfgoY",
-      contentType: "link" as const
+      imageSrc: "public/imgs/justprogramming.png",
+      link: "https://youtu.be/AVxZSSJfgoY"
     },
     {
       title: "This Website",
@@ -175,7 +174,7 @@ export function Projects() {
                   
                   {isExpanded && (
                     <div className="pt-3 border-t border-border">
-                      {/* Render image and link for projects with imageSrc */}
+                      
                       {project.imageSrc && (
                         <div className="flex flex-col items-center mb-6 space-y-6">
                           <img 
@@ -183,12 +182,17 @@ export function Projects() {
                             alt={project.title}
                             className="w-[350px] max-w-full rounded-lg shadow mb-2"
                           />
+                        </div>
+                      )}
+
+                      {project.imageSrc && (
+                        <div className="text-center mt-12 mb-8">
                           {project.link && (
                             <a
                               href={project.link}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-primary hover:underline text-base font-ibm-mono mt-4"
+                              className="text-primary hover:underline text-base font-ibm-mono"
                             >
                               View ↗
                             </a>
@@ -216,7 +220,7 @@ export function Projects() {
                               rel="noopener noreferrer"
                               className="text-primary hover:underline text-base font-ibm-mono"
                             >
-                              View ↗
+                              Play ↗
                             </a>
                           </div>
                         )}
@@ -246,7 +250,7 @@ export function Projects() {
                     </div>
                   )}
 
-                  {project.link && (
+                  {project.imageSrc && (
                     <div className="pt-3">
                       <button
                         onClick={() => toggleExpanded(index)}
@@ -259,6 +263,21 @@ export function Projects() {
                       </button>
                     </div>
                   )}
+
+                  {project.videoSrc && (
+                    <div className="pt-3">
+                      <button
+                        onClick={() => toggleExpanded(index)}
+                        className="inline-flex items-center gap-2 text-primary font-ibm-mono text-sm hover:gap-3 transition-all"
+                      >
+                        {isExpanded ? 'Collapse' : 'Expand'}
+                        <span className="w-4 h-4 flex items-center justify-center">
+                          {isExpanded ? '−' : '+'}
+                        </span>
+                      </button>
+                    </div>
+                  )}
+
                 </div>
               </article>
             );
