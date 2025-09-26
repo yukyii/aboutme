@@ -1,7 +1,6 @@
 
-  # Personal Website Design
+  # My personal website!
 
-  This is a code bundle for Personal Website Design. The original project is available at https://www.figma.com/design/1rawl1Tzd040qhURJcWC5P/Personal-Website-Design.
 
   ## Running the code
 
