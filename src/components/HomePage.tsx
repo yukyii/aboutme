@@ -1,12 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 
-interface TrailImage {
+interface TrailPixel {
   id: number;
   x: number;
   y: number;
   opacity: number;
-  src: string; // Add src to store the image source
+  color: string;
 }
 
 interface HomePageProps {
@@ -14,22 +13,16 @@ interface HomePageProps {
 }
 
 export function HomePage({ activeSection }: HomePageProps) {
-  // Add your custom images here
-  const images = [
-    "/imgs/cards.png",
-    "/imgs/commuters-eye.png",
-    "/imgs/gamedev.png"
-    // Add more images as needed
-  ];
-
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [trailImages, setTrailImages] = useState<TrailImage[]>([]);
-  const lastImagePos = useRef({ x: 0, y: 0 });
+  const [trailPixels, setTrailPixels] = useState<TrailPixel[]>([]);
+  const lastPixelPos = useRef({ x: 0, y: 0 });
   const homeRef = useRef<HTMLDivElement>(null);
 
-  // Function to get random image from array
-  const getRandomImage = () => {
-    return images[Math.floor(Math.random() * images.length)];
+  // Function to generate random RGB color
+  const getRandomColor = () => {
+    const r = Math.floor(Math.random() * 100) + 150; // 150-249
+    const g = Math.floor(Math.random() * 100) + 150;
+    const b = Math.floor(Math.random() * 100) + 150;
+    return `rgb(${r}, ${g}, ${b})`;
   };
 
   useEffect(() => {
@@ -49,33 +42,31 @@ export function HomePage({ activeSection }: HomePageProps) {
         );
         
         if (!isWithinHome) {
-          return; // Don't create trail if mouse is outside home section
+          return;
         }
       }
 
       const currentX = e.clientX;
       const currentY = e.clientY;
       
-      // Calculate distance from last image position
+      // Calculate distance from last pixel position
       const distance = Math.sqrt(
-        Math.pow(currentX - lastImagePos.current.x, 2) + 
-        Math.pow(currentY - lastImagePos.current.y, 2)
+        Math.pow(currentX - lastPixelPos.current.x, 2) + 
+        Math.pow(currentY - lastPixelPos.current.y, 2)
       );
       
-      // Only add new image if mouse has moved at least 80 pixels from last image
-      if (distance > 80) {
-        setMousePos({ x: currentX, y: currentY });
-        
-        const newImage: TrailImage = {
-          id: Date.now(),
+      // Add new pixel if mouse has moved at least 8 pixels from last pixel
+      if (distance > 8) {
+        const newPixel: TrailPixel = {
+          id: Date.now() + Math.random(),
           x: currentX,
           y: currentY,
           opacity: 1,
-          src: getRandomImage() // Get random image from array
+          color: getRandomColor()
         };
         
-        setTrailImages(prev => [...prev.slice(-8), newImage]); // Keep last 9 images
-        lastImagePos.current = { x: currentX, y: currentY };
+        setTrailPixels(prev => [...prev.slice(-30), newPixel]); // Keep last 30 pixels
+        lastPixelPos.current = { x: currentX, y: currentY };
       }
     };
 
@@ -84,44 +75,42 @@ export function HomePage({ activeSection }: HomePageProps) {
   }, [activeSection]);
 
   useEffect(() => {
-    // Clear trail images when leaving homepage
+    // Clear trail pixels when leaving homepage
     if (activeSection !== 'Home') {
-      setTrailImages([]);
+      setTrailPixels([]);
       return;
     }
 
-    // Fade out trail images
+    // Fade out trail pixels
     const interval = setInterval(() => {
-      setTrailImages(prev => 
-        prev.map(img => ({ ...img, opacity: img.opacity * 0.92 }))
-          .filter(img => img.opacity > 0.05)
+      setTrailPixels(prev => 
+        prev.map(pixel => ({ ...pixel, opacity: Math.max(0.1, pixel.opacity * 0.96) }))
+          .filter(pixel => pixel.opacity > 0.1)
       );
-    }, 50);
+    }, 80);
 
     return () => clearInterval(interval);
   }, [activeSection]);
 
   return (
     <div ref={homeRef} className="min-h-screen pt-20 px-6 overflow-hidden relative">
-      {/* Trail images */}
-      {trailImages.map((img) => (
+      {/* Trail pixels */}
+      {trailPixels.map((pixel) => (
         <div
-          key={img.id}
-          className="fixed pointer-events-none z-0"
+          key={pixel.id}
+          className="trail"
           style={{
-            left: img.x - 25,
-            top: img.y - 25,
-            opacity: img.opacity,
-            transform: 'translate(-50%, -50%)'
+            position: 'fixed',
+            left: pixel.x - 25, // Center the 50px pixel
+            top: pixel.y - 25,
+            opacity: pixel.opacity,
+            width: '50px',
+            height: '50px',
+            backgroundColor: pixel.color, // Use random color
+            zIndex: 50,
+            pointerEvents: 'none',
           }}
-        >
-          <ImageWithFallback
-            src={img.src} // Use the stored image source
-            alt=""
-            className="w-12 h-12 object-cover border-2 border-primary/20"
-            style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
-          />
-        </div>
+        />
       ))}
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -146,8 +135,8 @@ export function HomePage({ activeSection }: HomePageProps) {
             </div>
           </div>
 
-          {/* Right side - Visual element - commented out */}
-          {/* <div className="relative">
+          {/* Right side - Visual element
+          <div className="relative">
             <div className="aspect-square max-w-md mx-auto relative">
               <div className="absolute inset-0 border-4 border-primary/20 transform rotate-12"></div>
               <div className="absolute inset-4 border-2 border-primary/40 transform -rotate-6"></div>
