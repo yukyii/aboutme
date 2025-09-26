@@ -92,7 +92,7 @@ export function Projects() {
       title: "Site 27",
       date: "Spring 2025",
       article: "Video Game",
-      excerpt: "A top-down maze horror game about a scientist in a ruined laboratory overrun by its latest experiment.",
+      excerpt: "A top-down maze horror game about a scientist in a ruined laboratory overrun by its latest experiment. Expand to see a fun trailer I made and a link to play the game.",
       videoSrc: "https://www.youtube.com/embed/4TtxbjLVUpo?si=whP9l0mEImEjxdhD",
       contentType: "video" as const,
       link: "https://hjkimowl.itch.io/site27"
@@ -117,14 +117,14 @@ export function Projects() {
       date: "Fall 2024",
       article: "Design Thinking",
       excerpt: "In this class, I learned to envision inventive applications and deliver meaningful experiences to end users. Some activities include brainstorming applications for autonomous agents using bisociation, and designing a wireframe for an app which includes a creative exploration of interactive design components.",
-      imageSrc: "public/imgs/innovation-design-yukyi.png"
+      imageSrc: "/imgs/innovation-design-yukyi.png"
     },
     {
       title: "he's just programming",
       date: "Spring 2025",
       article: "Film",
-      excerpt: "A satirical film borne from my curiosity about what could happen if we did not care about assigning moral status to AI and other sophisticated machines.",
-      imageSrc: "public/imgs/justprogramming.png",
+      excerpt: "A satirical film borne from my imagination about what could happen if we did not care about assigning moral status to AI and other sophisticated machines.",
+      imageSrc: "/imgs/justprogramming.png",
       link: "https://youtu.be/AVxZSSJfgoY"
     }
   ];
