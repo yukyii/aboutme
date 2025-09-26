@@ -65,7 +65,11 @@ export default function App() {
           <About />
         </section>
         <section id="projects">
-          <Projects />
+          <Projects 
+          activeSection={activeSection}
+          onMouseEnterFooter={() => setActiveSection('Projects')}
+          onMouseLeaveFooter={() => {}}
+        />
         </section>
       </main>
       <Footer
