@@ -109,7 +109,7 @@ export function Footer({ activeSection, onMouseEnterFooter, onMouseLeaveFooter }
         <div className="text-center space-y-8">
           <div className="py-22">
             <h3 className="text-2xl font-dotemp">Thanks for visiting!</h3>
-            <span className="text-muted-foreground font-medium font-ibm-mono py-22">Wave a big goodbye with your mouse</span>
+            <span className="text-muted-foreground font-medium font-ibm-mono py-22">Wave a biiig goodbye with your mouse</span>
           </div>
           
           <div className="flex items-center justify-center gap-8 py-20">
